@@ -3,6 +3,7 @@ package com.example.notess
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.appbar.MaterialToolbar
@@ -15,6 +16,7 @@ class EditNoteActivity : AppCompatActivity() {
     private lateinit var etIsi: EditText
     private lateinit var btnUpdate: Button
     private lateinit var btnDelete: Button
+    private lateinit var btnBack: ImageButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +24,11 @@ class EditNoteActivity : AppCompatActivity() {
 
         db = DatabaseHelper(this)
 
-        etJudul = findViewById(R.id.etEditJudul)
-        etIsi = findViewById(R.id.etEditIsi)
+        etJudul = findViewById(R.id.etJudul)
+        etIsi = findViewById(R.id.etIsi)
         btnUpdate = findViewById(R.id.btnUpdate)
-        btnDelete = findViewById(R.id.btnDelete)
+        btnDelete = findViewById(R.id.btnHapus)
+        btnBack = findViewById(R.id.btnBack)   // 🔹 tombol kembali
 
         // Ambil data dari intent
         noteId = intent.getIntExtra("id", 0)
@@ -46,11 +49,13 @@ class EditNoteActivity : AppCompatActivity() {
                 Toast.makeText(this, "Catatan dihapus", Toast.LENGTH_SHORT).show()
                 finish()
             }
-            val toolbar = findViewById<MaterialToolbar>(R.id.toolbar)
-            toolbar.setNavigationOnClickListener {
-                onBackPressed() // kembali ke halaman sebelumnya
-            }
-
         }
+
+        // 🔹 fungsi tombol kembali
+        btnBack.setOnClickListener {
+            finish() // menutup activity dan kembali ke halaman sebelumnya
+        }
+
+
     }
 }

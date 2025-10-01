@@ -4,22 +4,27 @@
     android:layout_height="match_parent"
     android:background="@drawable/kertas">
 
-    <!-- Header / Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:title="Daftar Catatan"
-        android:titleTextColor="@android:color/white"
-        app:navigationIcon="@color/black" />
+    <!-- Tombol Kembali -->
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Kembali"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true" />
 
-    <!-- RecyclerView di bawah Toolbar -->
+    <!-- RecyclerView (di bawah tombol kembali) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewNotes"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/btnBack"
+        android:layout_marginTop="8dp"
         android:padding="8dp"
         android:backgroundTint="@color/white" />
 

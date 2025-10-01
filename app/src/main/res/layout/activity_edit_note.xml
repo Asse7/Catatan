@@ -1,4 +1,4 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -6,49 +6,67 @@
     android:padding="16dp"
     android:background="@drawable/kertas">
 
-    <!-- Header / Toolbar -->
-    <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:title="Daftar Catatan"
-        android:titleTextColor="@android:color/white"
-        app:navigationIcon="@color/black" />
+
+    <ImageButton
+        android:id="@+id/btnBack"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/transparent"
+        android:contentDescription="Kembali"
+        android:src="@drawable/back"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"/>
+
 
     <EditText
-        android:id="@+id/etEditJudul"
+        android:id="@+id/etJudul"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Judul Catatan"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"/>
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="41dp"
+        android:hint="Judul Catatan" />
 
     <EditText
-        android:id="@+id/etEditIsi"
+        android:id="@+id/etIsi"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:hint="Isi Catatan"
-        android:gravity="top"
-        android:inputType="textMultiLine"
-        android:textColor="@color/white"
-        android:textColorHint="@color/white"
-        android:backgroundTint="@color/white"/>
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etJudul"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="13dp"
+        android:hint="Isi Catatan" />
 
     <Button
         android:id="@+id/btnUpdate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/etIsi"
+        android:background="#FFEB3B"
         android:text="Update"
+        android:textColor="#000000"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="8dp"
+        android:padding="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
         android:backgroundTint="#FFEB3B"
-        android:textColor="@color/black"/>
+        android:shape="rectangle"/>
 
+    <!-- Tombol Hapus -->
     <Button
-        android:id="@+id/btnDelete"
+        android:id="@+id/btnHapus"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/btnUpdate"
+        android:background="#F44336"
         android:text="Hapus"
-        android:backgroundTint="#F44336"
-        android:textColor="#FFF"/>
-</LinearLayout>
+        android:textColor="#FFFFFF"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:padding="10dp" />
+</RelativeLayout>

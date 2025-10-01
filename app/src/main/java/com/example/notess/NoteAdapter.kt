@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class NoteAdapter(
     private val context: Context,
-    private val notes: ArrayList<Note>,
+    private var notes: MutableList<Note>, // ubah menjadi mutable
     private val db: DatabaseHelper
 ) : RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
@@ -38,8 +38,6 @@ class NoteAdapter(
             db.updateStatus(note.id, if (isChecked) 1 else 0)
         }
 
-        
-
         // Klik untuk edit
         holder.itemView.setOnClickListener {
             val intent = Intent(context, EditNoteActivity::class.java)
@@ -48,8 +46,14 @@ class NoteAdapter(
             intent.putExtra("content", note.content)
             context.startActivity(intent)
         }
-
     }
 
     override fun getItemCount(): Int = notes.size
+
+    // 🔹 Fungsi untuk update data
+    fun updateNotes(newNotes: List<Note>) {
+        notes.clear()
+        notes.addAll(newNotes)
+        notifyDataSetChanged()
+    }
 }
