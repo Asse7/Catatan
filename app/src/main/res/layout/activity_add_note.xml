@@ -1,0 +1,49 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@drawable/kertas">
+
+    <!-- Header / Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:title="Daftar Catatan"
+        android:titleTextColor="@android:color/white"
+        app:navigationIcon="@color/black" />
+
+    <!-- Input Judul -->
+    <EditText
+        android:id="@+id/etJudul"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:hint="Judul Catatan"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"/>
+
+    <!-- Input Isi Catatan -->
+    <EditText
+        android:id="@+id/etIsi"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:hint="Isi Catatan"
+        android:backgroundTint="@color/white"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        />
+
+    <!-- Tombol Simpan -->
+    <Button
+        android:id="@+id/btnSimpan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Simpan"
+        android:backgroundTint="#61AD04"/>
+</LinearLayout>
